@@ -1,14 +1,16 @@
 package com.example.cathaybankairport.main.airportinfo
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.material3.Text
+import BaseFlightPage
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.remember
+import com.example.cathaybankairport.main.airportinfo.api.AirPortInfoViewModel
 
 @Composable
 fun ArrivalFlightPage() {
-    Box {
-        Text(text = "抵達班機 內容" , modifier = Modifier.align(Alignment.Center))
+    val arrivalFlightPage = remember {
+        AirPortInfoViewModel("A")
     }
+    BaseFlightPage(viewModel = arrivalFlightPage)
 }
+
