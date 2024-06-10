@@ -1,4 +1,4 @@
-package com.example.cathaybankairport.main.airportinfo
+package com.example.cathaybankairport.main.airportinfo.api
 
 import com.example.cathaybankairport.R
 

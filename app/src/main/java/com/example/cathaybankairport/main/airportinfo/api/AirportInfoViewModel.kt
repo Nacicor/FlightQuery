@@ -7,27 +7,22 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class AirPortInfoViewModel(flightType:String) : ViewModel() {
+class AirportInfoViewModel(flightType: String) : ViewModel() {
 
-    private val _flightList = MutableStateFlow(emptyList<AirPortInfoItem>())
+    private val _flightList = MutableStateFlow(emptyList<AirportInfoItem>())
     val flightList = _flightList.asStateFlow()
     private val currentFlightType = flightType
 
     fun fetchFlightList() {
         viewModelScope.launch {
             try {
-                ApiClient.api.getFlightAllInfo(currentFlightType, "TPE").let { response ->
+                AirportClient.api.getFlightAllInfo(currentFlightType, "TPE").let { response ->
                     if (response.isSuccessful) {
-                        if (!response.body().isNullOrEmpty()) {
-                            _flightList.value = response.body()!!
-                            println(response.body())
-                        } else {
-                        }
-
+                        _flightList.value = response.body()!!
+                        println(response.body())
                     } else {
                         Log.d("DataViewModel", "onFailure: ${response.message()}")
                     }
-
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
