@@ -24,10 +24,9 @@ import com.example.cathaybankairport.main.navigationbar.MyNavigationBar
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
         setContent {
             var selectItemIndex by remember {
-                mutableIntStateOf(1)
+                mutableIntStateOf(0)
             }
             val pagerState = rememberPagerState(pageCount = { 2 })
             Surface(
