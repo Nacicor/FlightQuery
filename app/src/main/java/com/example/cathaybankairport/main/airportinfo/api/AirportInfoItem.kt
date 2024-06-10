@@ -1,9 +1,8 @@
 package com.example.cathaybankairport.main.airportinfo.api
 
-import com.example.cathaybankairport.main.airportinfo.AirportStatus
 import com.google.gson.annotations.SerializedName
 
-data class AirPortInfoItem(
+data class AirportInfoItem(
     @SerializedName("ActualTime")
     val actualTime: String? = "00:10",
     @SerializedName("Airline")
@@ -19,7 +18,7 @@ data class AirPortInfoItem(
     @SerializedName("DepartureAirportID")
     val departureAirportID: String? = "123",
     @SerializedName("EstimatedTime")
-    val estimatedTime: String? ="123",
+    val estimatedTime: String? = "123",
     @SerializedName("FlightNumber")
     val flightNumber: String? = "123",
     @SerializedName("FlyType")
@@ -31,10 +30,10 @@ data class AirPortInfoItem(
     @SerializedName("ScheduleTime")
     val scheduleTime: String? = "123",
     @SerializedName("Terminal")
-    val terminal: String? ="123",
+    val terminal: String? = "123",
     @SerializedName("UpdateTime")
-    val updateTime: String? ="123"
-){
-    val status:AirportStatus get() = AirportStatus.fromValue(remark)
+    val updateTime: String? = "123"
+) {
+    val status: AirportStatus get() = AirportStatus.fromValue(remark)
 
 }

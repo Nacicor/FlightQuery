@@ -26,48 +26,54 @@ fun AirportInfoPage() {
     val pagerState = rememberPagerState(pageCount = { 2 })
     val scope = rememberCoroutineScope()
 
-            Column {
-                Box (modifier = Modifier.padding(8.dp)){
-                    TabRow(selectedTabIndex = pagerState.currentPage) {
-                        val tabs = listOf("起飛班機","抵達班機")
-                        tabs.forEachIndexed { index , title ->
-                            Tab(
-                                text = { Text(text = title)},
-                                selected = pagerState.currentPage == index ,
-                                icon ={ Icon(imageVector = allIcon(page = index), contentDescription = null) },
-                                onClick = {
-                                    scope.launch {
-                                        pagerState.animateScrollToPage(index)
-                                    }
-                                },
-
+    Column {
+        Box(modifier = Modifier.padding(8.dp)) {
+            TabRow(selectedTabIndex = pagerState.currentPage) {
+                val tabs = listOf("起飛班機", "抵達班機")
+                tabs.forEachIndexed { index, title ->
+                    Tab(
+                        text = { Text(text = title) },
+                        selected = pagerState.currentPage == index,
+                        icon = {
+                            Icon(
+                                imageVector = allIcon(page = index),
+                                contentDescription = null
                             )
-                        }
-                    }
-                }
-
-                HorizontalPager(
-                    state = pagerState,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxSize()
-                ) { page ->
-                    when (page) {
-                        0 -> DepartingFlightPage()
-                        1 -> ArrivalFlightPage()
-                    }
+                        },
+                        onClick = {
+                            scope.launch {
+                                pagerState.animateScrollToPage(index)
+                            }
+                        },
+                    )
                 }
             }
+        }
+
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxSize()
+        ) { page ->
+            when (page) {
+                0 -> DepartingFlightPage()
+                1 -> ArrivalFlightPage()
+            }
+        }
+    }
 
 
 }
+
 @Composable
-fun allIcon(page : Int): ImageVector {
-    return when(page){
+fun allIcon(page: Int): ImageVector {
+    return when (page) {
         0 -> ImageVector.vectorResource(id = R.drawable.flight_takeoff_24dp_fill0_wght400_grad0_opsz24__1_)
         1 -> ImageVector.vectorResource(id = R.drawable.flight_land_24dp_fill0_wght400_grad0_opsz24__1_)
         else -> {
-            Icons.Default.Build}
+            Icons.Default.Build
+        }
     }
 
 }

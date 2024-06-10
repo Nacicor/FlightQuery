@@ -4,11 +4,11 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,54 +18,117 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.cathaybankairport.main.airportinfo.api.AirPortInfoItem
+import com.example.cathaybankairport.R
+import com.example.cathaybankairport.main.airportinfo.api.AirportInfoItem
 
 
 @Composable
-fun AirportInfoItem(data: AirPortInfoItem) {
+fun AirportInfoItem(data: AirportInfoItem) {
     Card(
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp),
-        border = BorderStroke(1.dp, Color.White)
+        border = BorderStroke(1.dp, Color.White),
+        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.lightBlue)),
+        elevation = CardDefaults.cardElevation(8.dp)
     ) {
-        Row(modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp)
-            .align(alignment = Alignment.CenterHorizontally)) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+        ) {
             Column(Modifier.weight(1.0f)) {
                 Row {
-                    Column (modifier = Modifier.weight(1.0f)){
-                        Text(text = "預計時間" , textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth())
+                    Column(modifier = Modifier.weight(1.0f)) {
+                        Text(
+                            text = "預計時間",
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        )
                         Spacer(modifier = Modifier.padding(4.dp))
-                        data.scheduleTime?.let { Text(text = it, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth()) }
+                        data.scheduleTime?.let {
+                            Text(
+                                text = it,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     }
                     Spacer(modifier = Modifier.padding(8.dp))
-                    Column (modifier = Modifier.weight(1.0f)){
-                        Text(text = "實際時間", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Column(modifier = Modifier.weight(1.0f)) {
+                        Text(
+                            text = "實際時間",
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        )
                         Spacer(modifier = Modifier.padding(4.dp))
-                        data.actualTime?.let { Text(text = it, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth()) }
+                        data.actualTime?.let {
+                            Text(
+                                text = it,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     }
                 }
                 Spacer(modifier = Modifier.padding(8.dp))
-                Text(text = "航機班號 : ${data.flightNumber}", textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth())
+                Text(
+                    text = "航機班號 : ${data.flightNumber}",
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
                 Spacer(modifier = Modifier.padding(4.dp))
-                Text(text = "航廈/登機門 : ${data.terminal}/${data.gate}", textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth())
+                Text(
+                    text = "航廈/登機門 : ${data.terminal}/${data.gate}",
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
                 Spacer(modifier = Modifier.padding(8.dp))
-                Text(text = data.remark, color = colorResource(id = data.status.color) , textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth())
+                Text(
+                    text = data.remark,
+                    color = colorResource(id = data.status.color),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
 
             }
             Column(
-                Modifier.weight(1.0f)) {
-                data.departureAirportID?.let { Text(text = it, textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth()) }
+                Modifier.weight(1.0f)
+            ) {
+                data.departureAirportID?.let {
+                    Text(
+                        text = it,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 Spacer(modifier = Modifier.padding(4.dp))
-                data.departureAirport?.let { Text(text = it, textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth()) }
+                data.departureAirport?.let {
+                    Text(
+                        text = it,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 Spacer(modifier = Modifier.padding(8.dp))
-                Text(text = "|", textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth() )
+                Text(text = "|", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 Spacer(modifier = Modifier.padding(8.dp))
-                data.arrivalAirportID?.let { Text(text = it, textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth()) }
+                data.arrivalAirportID?.let {
+                    Text(
+                        text = it,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 Spacer(modifier = Modifier.padding(4.dp))
-                data.arrivalAirport?.let { Text(text = it, textAlign = TextAlign.Center , modifier = Modifier.fillMaxWidth()) }
+                data.arrivalAirport?.let {
+                    Text(
+                        text = it,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
             }
         }
     }
@@ -75,5 +138,5 @@ fun AirportInfoItem(data: AirPortInfoItem) {
 @Preview
 @Composable
 private fun Test() {
-    AirportInfoItem(AirPortInfoItem())
+    AirportInfoItem(AirportInfoItem())
 }

@@ -14,13 +14,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.cathaybankairport.main.airportinfo.AirportInfoItem
-import com.example.cathaybankairport.main.airportinfo.api.AirPortInfoViewModel
+import com.example.cathaybankairport.main.airportinfo.api.AirportInfoViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BaseFlightPage(viewModel: AirPortInfoViewModel) {
+fun BaseFlightPage(viewModel: AirportInfoViewModel) {
 
     val data = viewModel.flightList.collectAsState()
 

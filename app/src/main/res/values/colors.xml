@@ -11,4 +11,7 @@
     <color name="brown">#D4AB7D</color>
     <color name="red">#DE8287</color>
     <color name="blue">#4D80E6</color>
+    <color name="lightGray">#F7F2FA</color>
+    <color name="lightGrayLittle">#E5E1E9</color>
+    <color name="lightBlue">#F7F2FA</color>
 </resources>

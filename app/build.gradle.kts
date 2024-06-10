@@ -49,6 +49,9 @@ android {
 
 dependencies {
 
+
+    implementation(libs.kotlin.reflect)
+
     implementation(libs.retrofit2)
     implementation(libs.retrofit2.converter.gson)
 
