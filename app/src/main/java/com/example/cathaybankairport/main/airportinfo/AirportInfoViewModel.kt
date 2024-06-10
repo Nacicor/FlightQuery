@@ -1,7 +1,9 @@
-package com.example.cathaybankairport.main.airportinfo.api
+package com.example.cathaybankairport.main.airportinfo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.cathaybankairport.main.airportinfo.api.AirportInfoItem
+import com.example.cathaybankairport.main.airportinfo.api.AirportRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

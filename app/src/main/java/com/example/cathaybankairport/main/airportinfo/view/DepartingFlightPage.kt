@@ -1,9 +1,8 @@
-package com.example.cathaybankairport.main.airportinfo
+package com.example.cathaybankairport.main.airportinfo.view
 
-import BaseFlightPage
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.example.cathaybankairport.main.airportinfo.api.AirportInfoViewModel
+import com.example.cathaybankairport.main.airportinfo.AirportInfoViewModel
 
 @Composable
 fun DepartingFlightPage() {

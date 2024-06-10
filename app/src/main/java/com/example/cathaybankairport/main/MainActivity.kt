@@ -17,8 +17,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.cathaybankairport.main.airportinfo.AirportInfoPage
-import com.example.cathaybankairport.main.exchangerate.ExchangeRatePage
+import com.example.cathaybankairport.main.airportinfo.view.AirportInfoPage
+import com.example.cathaybankairport.main.exchangerate.view.ExchangeRatePage
 import com.example.cathaybankairport.main.navigationbar.MyNavigationBar
 
 class MainActivity : ComponentActivity() {
