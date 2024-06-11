@@ -1,6 +1,7 @@
 package com.example.cathaybankairport.main.exchangerate.caculator
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,7 +33,11 @@ fun BottomSheetCalculator(
     Box(
         modifier = Modifier
             .padding(8.dp)
-            .background(colorResource(id = R.color.lightGray))
+            .background(
+                color = if (isSystemInDarkTheme()) colorResource(id = R.color.DarkGrey) else colorResource(
+                    id = R.color.lightGray
+                )
+            )
             .fillMaxWidth()
     ) {
         Column(modifier = Modifier.align(alignment = Alignment.TopCenter)) {
