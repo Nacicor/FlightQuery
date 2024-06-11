@@ -3,6 +3,7 @@ package com.example.cathaybankairport.main.exchangerate.caculator
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,7 +25,7 @@ fun CalculatorButton(title: String, onClick: () -> Unit) {
         modifier = Modifier
             .padding(8.dp)
             .clip(RoundedCornerShape(8.dp))
-            .background(Color.White)
+            .background(color = if (isSystemInDarkTheme()) colorResource(id = R.color.DarkGrey) else Color.White)
             .border(
                 width = 1.dp,
                 color = colorResource(id = R.color.lightGrayLittle),
