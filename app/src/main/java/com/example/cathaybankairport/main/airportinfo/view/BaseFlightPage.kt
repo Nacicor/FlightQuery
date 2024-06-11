@@ -1,3 +1,5 @@
+package com.example.cathaybankairport.main.airportinfo.view
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.cathaybankairport.main.airportinfo.AirportInfoItem
-import com.example.cathaybankairport.main.airportinfo.api.AirportInfoViewModel
+import com.example.cathaybankairport.main.airportinfo.AirportInfoViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

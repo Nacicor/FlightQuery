@@ -17,37 +17,40 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.cathaybankairport.main.airportinfo.AirportInfoPage
-import com.example.cathaybankairport.main.exchangerate.ExchangeRatePage
+import com.example.cathaybankairport.main.airportinfo.view.AirportInfoPage
+import com.example.cathaybankairport.main.exchangerate.view.ExchangeRatePage
 import com.example.cathaybankairport.main.navigationbar.MyNavigationBar
+import com.example.cathaybankairport.ui.theme.CathayBankAirportTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            var selectItemIndex by remember {
-                mutableIntStateOf(0)
-            }
-            val pagerState = rememberPagerState(pageCount = { 2 })
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                Scaffold(
-                    bottomBar = {
-                        MyNavigationBar(selectedItemIndex = selectItemIndex) {
-                            selectItemIndex = it
-                        }
-                    }
+            CathayBankAirportTheme {
+                var selectItemIndex by remember {
+                    mutableIntStateOf(0)
+                }
+                val pagerState = rememberPagerState(pageCount = { 2 })
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
-                    PaddedBox(innerPadding = it) {
-                        when (selectItemIndex) {
-                            0 -> {
-                                AirportInfoPage()
+                    Scaffold(
+                        bottomBar = {
+                            MyNavigationBar(selectedItemIndex = selectItemIndex) {
+                                selectItemIndex = it
                             }
+                        }
+                    ) {
+                        PaddedBox(innerPadding = it) {
+                            when (selectItemIndex) {
+                                0 -> {
+                                    AirportInfoPage()
+                                }
 
-                            1 -> {
-                                ExchangeRatePage()
+                                1 -> {
+                                    ExchangeRatePage()
+                                }
                             }
                         }
                     }
