@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cathaybankairport"
+    namespace = "com.example.flightQuery"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.cathaybankairport"
+        applicationId = "com.example.flightQuery"
         minSdk = 34
         targetSdk = 34
         versionCode = 1
@@ -49,6 +49,8 @@ android {
 
 dependencies {
 
+    implementation(libs.koin.android)
+    //implementation(libs.koin.androidx.compose)
 
     implementation(libs.kotlin.reflect)
 
