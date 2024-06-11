@@ -1,4 +1,4 @@
-package com.example.flightQuery.main.airportinfo
+package com.example.flightQuery.main.airportinfo.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

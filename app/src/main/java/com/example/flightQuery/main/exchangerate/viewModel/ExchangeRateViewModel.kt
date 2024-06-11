@@ -1,4 +1,4 @@
-package com.example.flightQuery.main.exchangerate
+package com.example.flightQuery.main.exchangerate.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,12 +12,9 @@ import java.math.RoundingMode
 class ExchangeRateViewModel : ViewModel() {
 
     private val _rateList = MutableStateFlow(emptyMap<String, Double>())
-
     private val repository = RateRepository()
-
     private val _displayList = MutableStateFlow(emptyMap<String, Double>())
     val displayList = _displayList.asStateFlow()
-
     private val _isRateCardEnabled = MutableStateFlow(false)
     val isRateCardEnabled = _isRateCardEnabled.asStateFlow()
 

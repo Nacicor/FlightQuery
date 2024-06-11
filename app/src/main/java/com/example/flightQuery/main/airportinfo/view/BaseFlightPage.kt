@@ -15,8 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.flightQuery.main.airportinfo.AirportInfoItem
-import com.example.flightQuery.main.airportinfo.AirportInfoViewModel
+import com.example.flightQuery.main.airportinfo.viewModel.AirportInfoViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

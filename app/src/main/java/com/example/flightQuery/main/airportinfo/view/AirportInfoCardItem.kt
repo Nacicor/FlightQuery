@@ -1,4 +1,4 @@
-package com.example.flightQuery.main.airportinfo
+package com.example.flightQuery.main.airportinfo.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.isSystemInDarkTheme

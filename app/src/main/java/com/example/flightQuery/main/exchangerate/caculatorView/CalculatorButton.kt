@@ -1,4 +1,4 @@
-package com.example.flightQuery.main.exchangerate.caculator
+package com.example.flightQuery.main.exchangerate.caculatorView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

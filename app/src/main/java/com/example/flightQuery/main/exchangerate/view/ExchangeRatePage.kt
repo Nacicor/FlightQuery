@@ -26,9 +26,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.flightQuery.main.exchangerate.ExchangeRateViewModel
 import com.example.flightQuery.main.exchangerate.api.RateInfoItem
-import com.example.flightQuery.main.exchangerate.caculator.BottomSheetCalculator
+import com.example.flightQuery.main.exchangerate.caculatorView.BottomSheetCalculator
+import com.example.flightQuery.main.exchangerate.viewModel.ExchangeRateViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

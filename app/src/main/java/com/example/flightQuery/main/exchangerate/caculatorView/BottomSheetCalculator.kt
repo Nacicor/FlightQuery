@@ -1,4 +1,4 @@
-package com.example.flightQuery.main.exchangerate.caculator
+package com.example.flightQuery.main.exchangerate.caculatorView
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.flightQuery.R
-import com.example.flightQuery.main.exchangerate.ExchangeRateViewModel
+import com.example.flightQuery.main.exchangerate.viewModel.ExchangeRateViewModel
 
 @Composable
 fun BottomSheetCalculator(

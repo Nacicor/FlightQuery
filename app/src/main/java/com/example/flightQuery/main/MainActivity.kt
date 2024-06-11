@@ -25,6 +25,7 @@ import com.example.flightQuery.ui.theme.FlightQueryTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             FlightQueryTheme {
                 var selectItemIndex by remember {
