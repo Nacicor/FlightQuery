@@ -1,6 +1,7 @@
 package com.example.cathaybankairport.main.airportinfo
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +19,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.cathaybankairport.R
 import com.example.cathaybankairport.main.airportinfo.api.AirportInfoItem
 
 
@@ -28,8 +28,11 @@ fun AirportInfoItem(data: AirportInfoItem) {
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp),
-        border = BorderStroke(1.dp, Color.White),
-        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.lightBlue)),
+        border = BorderStroke(
+            width = 1.dp,
+            color = (if (isSystemInDarkTheme()) Color.DarkGray else Color.White)
+        ),
+        //colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.lightBlue)),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Row(
