@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "cathayBankAirport"
+rootProject.name = "flightQuery"
 include(":app")
  

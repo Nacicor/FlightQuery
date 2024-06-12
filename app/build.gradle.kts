@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cathaybankairport"
+    namespace = "com.example.flightQuery"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.cathaybankairport"
+        applicationId = "com.example.flightQuery"
         minSdk = 34
         targetSdk = 34
         versionCode = 1
@@ -48,7 +48,14 @@ android {
 }
 
 dependencies {
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 
+    //testImplementation(libs.kotest.runner.junit5.jvm)
+    //testImplementation(libs.kotest.assertions.core.jvm)
+
+    implementation(libs.koin.android)
+    //implementation(libs.koin.androidx.compose)
 
     implementation(libs.kotlin.reflect)
 
@@ -64,6 +71,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    testImplementation("junit:junit:4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
