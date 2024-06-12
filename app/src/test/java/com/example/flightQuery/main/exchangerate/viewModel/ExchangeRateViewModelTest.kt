@@ -1,20 +1,22 @@
 package com.example.flightQuery.main.exchangerate.viewModel
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import com.example.flightQuery.main.exchangerate.api.RateDataConvertor
+import com.example.flightQuery.main.exchangerate.api.RateRepository
+import io.mockk.mockk
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.math.BigDecimal
 import java.math.RoundingMode
 
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class ExchangeRateViewModelTest {
     @Test
     fun testUpdateCurrencyAmounts() {
-
         runTest {
-            val newCurrencyMap = NewCurrencyMap()
+            val rep = mockk<RateRepository>()
+            val con = mockk<RateDataConvertor>()
+            val model = ExchangeRateViewModel(rep, con)
 
             val fakeDisplay = mapOf("USD" to 1.0, "AUD" to 1.5)
             val fakeRateList = mapOf("USD" to 1.0, "AUD" to 0.75)
@@ -29,7 +31,7 @@ class ExchangeRateViewModelTest {
                 ).toDouble()
             )
             val actualResult =
-                newCurrencyMap.newCurrencyMap(fakeDisplay, fakeRateList, selectedCurrency, amount)
+                model.newCurrencyMap(fakeDisplay, fakeRateList, selectedCurrency, amount)
 
             assertEquals(fakeResult, actualResult)
         }
