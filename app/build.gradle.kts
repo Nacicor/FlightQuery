@@ -48,6 +48,11 @@ android {
 }
 
 dependencies {
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    //testImplementation(libs.kotest.runner.junit5.jvm)
+    //testImplementation(libs.kotest.assertions.core.jvm)
 
     implementation(libs.koin.android)
     //implementation(libs.koin.androidx.compose)
@@ -66,6 +71,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    testImplementation("junit:junit:4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

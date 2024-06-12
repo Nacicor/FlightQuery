@@ -7,7 +7,6 @@ import retrofit2.http.Header
 interface RateAPI {
     @GET("v1/latest")
     suspend fun getRate(
-        //@Query("apiKey") apiKey: String,
         @Header("apiKey") apiKey: String
     ): Response<RateInfoItem>
 }
