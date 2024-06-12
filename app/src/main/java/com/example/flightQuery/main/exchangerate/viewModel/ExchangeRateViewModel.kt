@@ -40,16 +40,18 @@ class ExchangeRateViewModel : ViewModel() {
         selectedCurrency: String,
         amount: Double = 0.0,
     ) {
-        _displayList.value =
-            newCurrencyMap(_displayList.value, _rateList.value, selectedCurrency, amount)
+        newCurrencyMap(_displayList.value, _rateList.value, selectedCurrency, amount) {
+            _displayList.value = it
+        }
     }
 
     private fun newCurrencyMap(
         displayMap: Map<String, Double>,
         rateMap: Map<String, Double>,
         selectedCurrency: String,
-        chooseAmount: Double
-    ): Map<String, Double> {
+        chooseAmount: Double,
+        updateUI: (Map<String, Double>) -> Unit
+    ) {
         val currentMap = displayMap.toMutableMap()
         for (item in displayMap) {
             if (item.key == selectedCurrency) {
@@ -64,7 +66,7 @@ class ExchangeRateViewModel : ViewModel() {
                         2, RoundingMode.HALF_UP
                     ).toDouble()
             }
+            updateUI(currentMap.toMap())
         }
-        return currentMap
     }
 }
