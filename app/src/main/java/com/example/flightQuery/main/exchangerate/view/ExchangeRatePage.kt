@@ -32,13 +32,10 @@ import com.example.flightQuery.main.exchangerate.viewModel.ExchangeRateViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExchangeRatePage() {
+fun ExchangeRatePage(model: ExchangeRateViewModel) {
     val allRateName = RateInfoItem.Data.getCurrencies()
     val bottomSheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
-    val model = remember {
-        ExchangeRateViewModel()
-    }
     var selectItemName by remember {
         mutableStateOf("AUD")
     }
