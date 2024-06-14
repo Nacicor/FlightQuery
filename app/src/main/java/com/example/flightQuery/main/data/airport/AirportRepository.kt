@@ -3,19 +3,19 @@ package com.example.flightQuery.main.data.airport
 import android.util.Log
 import com.example.flightQuery.main.domain.airport.model.AirportInfoItem
 
-class AirportRepository {
+class AirportRepository(private val apiService: AirportApiService) {
     suspend fun flightInfo(currentFlightType: String): List<AirportInfoItem> {
         try {
-            AirportRetrofitInstance.api.getFlightAllInfo(currentFlightType, "TPE").let { response ->
-                if (response.isSuccessful) {
-                    return response.body() ?: emptyList()
-                } else {
-                    Log.d(
-                        "DataViewModel",
-                        "onFailure: ${response.message()} , code : ${response.code()}"
-                    )
-                }
+            val response = apiService.getFlightAllInfo(currentFlightType, "TPE")
+            if (response.isSuccessful) {
+                return response.body() ?: emptyList()
+            } else {
+                Log.d(
+                    "AirportRepository",
+                    "onFailure: ${response.message()} , code : ${response.code()}"
+                )
             }
+
         } catch (e: Exception) {
             e.printStackTrace()
         }

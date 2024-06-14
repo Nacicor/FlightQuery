@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.flightQuery.main.ui.airport.AirportInfoViewModel
 import com.example.flightQuery.main.ui.airport.screen.AirportInfoPage
 import com.example.flightQuery.main.ui.exchange.ExchangeRateViewModel
 import com.example.flightQuery.main.ui.exchange.screen.ExchangeRatePage
@@ -29,6 +30,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val exchangeRateViewModel: ExchangeRateViewModel by viewModel()
+        val airportInfoViewModel: AirportInfoViewModel by viewModel()
         setContent {
             FlightQueryTheme {
                 var selectItemIndex by remember {
@@ -49,7 +51,7 @@ class MainActivity : ComponentActivity() {
                         PaddedBox(innerPadding = it) {
                             when (selectItemIndex) {
                                 0 -> {
-                                    AirportInfoPage()
+                                    AirportInfoPage(airportInfoViewModel)
                                 }
 
                                 1 -> {
