@@ -1,5 +1,9 @@
 package com.example.flightQuery.main.exchangerate.api
 
+import com.example.flightQuery.main.data.exchange.RateApiService
+import com.example.flightQuery.main.data.exchange.RateRepository
+import com.example.flightQuery.main.data.exchange.RateRetrofitInstance
+import com.example.flightQuery.main.domain.exchange.model.RateInfoItem
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -12,8 +16,8 @@ import retrofit2.Response
 
 class RateRepositoryTest {
     private val repository = RateRepository()
-    private val fakeClient = mockk<RateClient>()
-    private val fakeApi = mockk<RateAPI>()
+    private val fakeClient = mockk<RateRetrofitInstance>()
+    private val fakeApi = mockk<RateApiService>()
     private val code = "404"
     private val fakeResponse = Response.error<RateInfoItem>(404, ResponseBody.create(null, ""))
 
