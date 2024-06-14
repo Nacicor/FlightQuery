@@ -13,12 +13,14 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.example.flightQuery.R
+import com.example.flightQuery.main.ui.airport.AirportInfoViewModel
 import kotlinx.coroutines.launch
 
 @Composable
@@ -75,6 +77,21 @@ fun allIcon(page: Int): ImageVector {
             Icons.Default.Build
         }
     }
+}
 
+@Composable
+fun ArrivalFlightPage() {
+    val arrivalFlightPage = remember {
+        AirportInfoViewModel("A")
+    }
+    BaseFlightPage(viewModel = arrivalFlightPage)
+}
+
+@Composable
+fun DepartingFlightPage() {
+    val departingFlightModel = remember {
+        AirportInfoViewModel("D")
+    }
+    BaseFlightPage(viewModel = departingFlightModel)
 }
 
