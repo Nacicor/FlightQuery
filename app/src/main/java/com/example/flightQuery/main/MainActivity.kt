@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
 
         val exchangeRateViewModel: ExchangeRateViewModel by viewModel()
         val airportInfoViewModel: AirportInfoViewModel by viewModel()
+        
         setContent {
             FlightQueryTheme {
                 var selectItemIndex by remember {

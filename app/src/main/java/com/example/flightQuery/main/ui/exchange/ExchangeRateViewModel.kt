@@ -2,21 +2,16 @@ package com.example.flightQuery.main.ui.exchange
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.flightQuery.main.data.exchange.RateRepository
-import com.example.flightQuery.main.data.exchange.RateRetrofitInstance
-import com.example.flightQuery.main.domain.exchange.usecase.ConvertRateDataUseCase
 import com.example.flightQuery.main.domain.exchange.usecase.CreateNewCurrencyMapUseCase
+import com.example.flightQuery.main.domain.exchange.usecase.IntegrateResultToMapUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ExchangeRateViewModel(
-    private val repository: RateRepository,
-    private val convertor: ConvertRateDataUseCase,
+    private val integrateResultToMapUseCase: IntegrateResultToMapUseCase,
     private val createCurrencyMap: CreateNewCurrencyMapUseCase
-) : ViewModel(
-
-) {
+) : ViewModel() {
     private val _rateList = MutableStateFlow(emptyMap<String, Double>())
     private val _displayList = MutableStateFlow(emptyMap<String, Double>())
     val displayList = _displayList.asStateFlow()
@@ -29,9 +24,7 @@ class ExchangeRateViewModel(
 
     private fun fetchCurrencyRate() {
         viewModelScope.launch {
-            val allRate: Map<String, Double> =
-                convertor.convertResponseToMap(repository.getFromApiResult(RateRetrofitInstance))
-                    .mapValues { (_, value) -> value as? Double ?: 1.0 }
+            val allRate: Map<String, Double> = integrateResultToMapUseCase.getResult()
             _rateList.value = allRate
             _displayList.value = allRate
             _isRateCardEnabled.value = true
