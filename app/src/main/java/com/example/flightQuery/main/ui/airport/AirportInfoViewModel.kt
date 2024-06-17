@@ -17,16 +17,16 @@ class AirportInfoViewModel(
     private val _flightList = MutableStateFlow(emptyList<AirportInfoItem>())
     val flightList = _flightList.asStateFlow()
 
-    private var currentFlightType: String? = null
-
-    fun setFlightType(flightType: String) {
-        currentFlightType = flightType
+    private var flightType: String = ""
+    fun setFlightType(type: String) {
+        flightType = type
     }
 
     fun fetchFlightList() {
+        println("============fetchFlightList = $flightType")
         viewModelScope.launch {
             try {
-                val flightInfoResponse = fetchAirportInfoUseCase.execute(currentFlightType ?: "D")
+                val flightInfoResponse = fetchAirportInfoUseCase.execute(flightType)
                 val flightInfo = getAirportResponseUseCase.processResponse(flightInfoResponse)
                 if (flightInfo.isNotEmpty()) {
                     _flightList.value = flightInfo

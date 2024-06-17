@@ -29,9 +29,10 @@ fun BaseFlightPage(viewModel: AirportInfoViewModel) {
     val refreshState = remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(viewModel) {
         viewModel.fetchFlightList()
     }
+    
     PullToRefreshBox(
         isRefreshing = refreshState.value,
         onRefresh = {
