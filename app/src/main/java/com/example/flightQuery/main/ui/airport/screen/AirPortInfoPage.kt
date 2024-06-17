@@ -13,7 +13,12 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
@@ -27,6 +32,7 @@ import org.koin.androidx.compose.koinViewModel
 fun AirportInfoPage() {
     val pagerState = rememberPagerState(pageCount = { 2 })
     val scope = rememberCoroutineScope()
+    var flightType by remember { mutableStateOf("D") }
 
     Column {
         Box(modifier = Modifier.padding(8.dp)) {
@@ -51,26 +57,26 @@ fun AirportInfoPage() {
                 }
             }
         }
-
+        
         HorizontalPager(
             state = pagerState,
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxSize()
         ) { page ->
+            val viewModel: AirportInfoViewModel = koinViewModel()
+
+            LaunchedEffect(page) {
+                flightType = if (page == 0) "D" else "A"
+                viewModel.setFlightType(flightType)
+            }
             when (page) {
                 0 -> {
-                    val model: AirportInfoViewModel =
-                        koinViewModel()
-                    model.setFlightType("D")
-                    DepartingFlightPage(model)
+                    DepartingFlightPage(viewModel)
                 }
 
                 1 -> {
-                    val model: AirportInfoViewModel =
-                        koinViewModel()
-                    model.setFlightType("A")
-                    ArrivalFlightPage(model)
+                    ArrivalFlightPage(viewModel)
                 }
             }
         }

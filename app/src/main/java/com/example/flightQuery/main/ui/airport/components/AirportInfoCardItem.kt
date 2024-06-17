@@ -32,7 +32,6 @@ fun AirportInfoItem(data: AirportInfoItem) {
             width = 1.dp,
             color = (if (isSystemInDarkTheme()) Color.DarkGray else Color.White)
         ),
-        //colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.lightBlue)),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Row(
