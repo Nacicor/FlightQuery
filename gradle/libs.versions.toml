@@ -1,6 +1,7 @@
 [versions]
 agp = "8.4.2"
 koinAndroid = "3.5.6"
+koinAndroidxComposeVersion = "3.5.6"
 kotestAssertionsCoreJvm = "5.9.1"
 kotestRunnerJunit5Jvm = "5.9.1"
 kotlin = "2.0.0"
@@ -19,6 +20,7 @@ retrofit2 = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -39,6 +41,7 @@ retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofi
 retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2" }
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+insert-koin-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxComposeVersion" }
 
 kotest-assertions-core-jvm = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertionsCoreJvm" }
 kotest-runner-junit5-jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotestRunnerJunit5Jvm" }

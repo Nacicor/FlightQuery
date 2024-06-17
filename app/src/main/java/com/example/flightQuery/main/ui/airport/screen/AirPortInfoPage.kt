@@ -21,9 +21,10 @@ import androidx.compose.ui.unit.dp
 import com.example.flightQuery.R
 import com.example.flightQuery.main.ui.airport.AirportInfoViewModel
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun AirportInfoPage(model: AirportInfoViewModel) {
+fun AirportInfoPage() {
     val pagerState = rememberPagerState(pageCount = { 2 })
     val scope = rememberCoroutineScope()
 
@@ -58,8 +59,19 @@ fun AirportInfoPage(model: AirportInfoViewModel) {
                 .fillMaxSize()
         ) { page ->
             when (page) {
-                0 -> DepartingFlightPage(model)
-                1 -> ArrivalFlightPage(model)
+                0 -> {
+                    val model: AirportInfoViewModel =
+                        koinViewModel()
+                    model.setFlightType("D")
+                    DepartingFlightPage(model)
+                }
+
+                1 -> {
+                    val model: AirportInfoViewModel =
+                        koinViewModel()
+                    model.setFlightType("A")
+                    ArrivalFlightPage(model)
+                }
             }
         }
     }
@@ -78,13 +90,11 @@ fun allIcon(page: Int): ImageVector {
 
 @Composable
 fun ArrivalFlightPage(model: AirportInfoViewModel) {
-    model.setFlightInfo("D")
     BaseFlightPage(viewModel = model)
 }
 
 @Composable
 fun DepartingFlightPage(model: AirportInfoViewModel) {
-    model.setFlightInfo("A")
     BaseFlightPage(viewModel = model)
 }
 
