@@ -1,14 +1,12 @@
-package com.example.flightQuery.main.exchangerate.viewModel
+package com.example.flightQuery.main.domain.exchange.usecase
 
-import com.example.flightQuery.main.domain.exchange.usecase.CreateNewCurrencyMapUseCase
-import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-
-class ExchangeRateViewModelTest {
+class CreateNewCurrencyMapUseCaseTest {
     @Test
     fun testUpdateCurrencyAmounts() {
         runTest {

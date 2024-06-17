@@ -55,6 +55,7 @@ dependencies {
     //testImplementation(libs.kotest.assertions.core.jvm)
 
     implementation(libs.koin.android)
+    implementation(libs.insert.koin.koin.androidx.compose)
 
     implementation(libs.kotlin.reflect)
 

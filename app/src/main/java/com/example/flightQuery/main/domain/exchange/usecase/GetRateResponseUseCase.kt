@@ -6,7 +6,7 @@ import retrofit2.Response
 import kotlin.reflect.KClass
 import kotlin.reflect.full.memberProperties
 
-class ConvertRateDataUseCase {
+class GetRateResponseUseCase {
 
     fun convertResponseToMap(response: Response<RateInfoItem>): Map<String, Any?> {
         response.let {

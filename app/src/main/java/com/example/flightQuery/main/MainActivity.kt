@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -17,7 +16,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.flightQuery.main.ui.airport.AirportInfoViewModel
 import com.example.flightQuery.main.ui.airport.screen.AirportInfoPage
 import com.example.flightQuery.main.ui.exchange.ExchangeRateViewModel
 import com.example.flightQuery.main.ui.exchange.screen.ExchangeRatePage
@@ -30,13 +28,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val exchangeRateViewModel: ExchangeRateViewModel by viewModel()
-        val airportInfoViewModel: AirportInfoViewModel by viewModel()
+
         setContent {
             FlightQueryTheme {
                 var selectItemIndex by remember {
                     mutableIntStateOf(0)
                 }
-                val pagerState = rememberPagerState(pageCount = { 2 })
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -51,7 +48,7 @@ class MainActivity : ComponentActivity() {
                         PaddedBox(innerPadding = it) {
                             when (selectItemIndex) {
                                 0 -> {
-                                    AirportInfoPage(airportInfoViewModel)
+                                    AirportInfoPage()
                                 }
 
                                 1 -> {
