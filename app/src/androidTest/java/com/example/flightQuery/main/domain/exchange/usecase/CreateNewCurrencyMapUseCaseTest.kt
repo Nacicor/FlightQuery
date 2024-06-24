@@ -1,5 +1,6 @@
 package com.example.flightQuery.main.domain.exchange.usecase
 
+import com.example.flightQuery.domain.exchange.usecase.CreateNewCurrencyMapUseCase
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
