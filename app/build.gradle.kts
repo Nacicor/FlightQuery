@@ -48,6 +48,9 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.androidx.navigation.compose)
+
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
 
