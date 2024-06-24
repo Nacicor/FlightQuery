@@ -19,9 +19,8 @@ fun NavGraph() {
             LoginScreen(navController)
         }
         composable("Register") {
-            RegisterScreen(navController)
+            RegisterScreen(navController) {}
         }
-
     }
 
 }
