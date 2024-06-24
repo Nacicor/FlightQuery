@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.flightQuery.ui.account.navigation.NavGraph
 import com.example.flightQuery.ui.airport.screen.AirportInfoPage
 import com.example.flightQuery.ui.exchange.ExchangeRateViewModel
 import com.example.flightQuery.ui.exchange.screen.ExchangeRatePage
@@ -53,6 +54,10 @@ class MainActivity : ComponentActivity() {
 
                                 1 -> {
                                     ExchangeRatePage(exchangeRateViewModel)
+                                }
+
+                                2 -> {
+                                    NavGraph()
                                 }
                             }
                         }

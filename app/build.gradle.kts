@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.common)
 
     implementation(libs.androidx.navigation.compose)
 

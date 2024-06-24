@@ -3,6 +3,9 @@ package com.example.flightQuery.ui.navigationbar
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
@@ -15,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.flightQuery.R
 
@@ -36,6 +40,12 @@ fun MyNavigationBar(
             unselectedIcon = ImageVector.vectorResource(id = R.drawable.attach_money_24dp_fill0_wght400_grad0_opsz24__1_),
             hasNews = false,
         ),
+        MyBottomNavigationItem(
+            title = "帳戶",
+            selectedIcon = Icons.Outlined.AccountBox,
+            unselectedIcon = Icons.Default.AccountBox,
+            hasNews = false,
+        )
     )
     Box(
         modifier = Modifier
@@ -78,6 +88,13 @@ fun MyNavigationBar(
             }
         }
     }
+}
+
+
+@Preview
+@Composable
+private fun Test() {
+    MyNavigationBar(0 , onItemSelected = {})
 }
 
 
