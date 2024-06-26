@@ -44,11 +44,11 @@ fun AccountMainScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Button(onClick = { navController.navigate("Login") }) {
+            Button(onClick = { navController.navigate(AccountPage.Login.name) }) {
                 Text("Login")
             }
             Spacer(modifier = Modifier.height(8.dp))
-            Button(onClick = { navController.navigate("Register") }) {
+            Button(onClick = { navController.navigate(AccountPage.Register.name) }) {
                 Text("Register")
             }
         }
@@ -61,12 +61,34 @@ fun AccountMainScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                if (!it.avatarUrl.isNullOrEmpty()) {
+                    AsyncImage(
+                        it.avatarUrl,
+                        null,
+                        modifier = Modifier
+                            .size(160.dp)
+                            .padding(8.dp)
+                    )
+                } else {
+                    Image(
+                        Icons.Default.AccountCircle,
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(160.dp)
+                            .padding(8.dp)
+                    )
+                }
+
+
+
+                Spacer(modifier = Modifier.height(8.dp))
+                        it.avatarUrl,
                 Text(text = "Welcome, ${it.name}")
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Button(onClick = {
                     loginViewModel.clearUsername()
-                    navController.navigate("Main") {
-                        popUpTo("Main") { inclusive = true }
+                    navController.navigate(AccountPage.Main.name) {
+                        popUpTo(AccountPage.Main.name) { inclusive = true }
                     }
                 }) {
                     Text("Logout")
