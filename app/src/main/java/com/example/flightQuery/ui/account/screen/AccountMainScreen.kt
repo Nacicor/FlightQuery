@@ -44,11 +44,11 @@ fun AccountMainScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Button(onClick = { navController.navigate("Login") }) {
+            Button(onClick = { navController.navigate(AccountPage.Login.name) }) {
                 Text("Login")
             }
             Spacer(modifier = Modifier.height(8.dp))
-            Button(onClick = { navController.navigate("Register") }) {
+            Button(onClick = { navController.navigate(AccountPage.Register.name) }) {
                 Text("Register")
             }
         }
@@ -87,8 +87,8 @@ fun AccountMainScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(onClick = {
                     loginViewModel.clearUsername()
-                    navController.navigate("Main") {
-                        popUpTo("Main") { inclusive = true }
+                    navController.navigate(AccountPage.Main.name) {
+                        popUpTo(AccountPage.Main.name) { inclusive = true }
                     }
                 }) {
                     Text("Logout")

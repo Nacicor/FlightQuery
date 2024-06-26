@@ -71,7 +71,8 @@ fun LoginScreen(
         TextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") }
+            label = { Text("Password") },
+            visualTransformation = PasswordVisualTransformation()
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
@@ -79,14 +80,14 @@ fun LoginScreen(
                 userViewModel.loginGetUser(username, password) { user ->
                     if (user != null) {
                         loginViewModel.saveUsername(username)
-                        navController.navigate("Main")
+                        navController.navigate(AccountPage.Main.name)
                     } else {
                         errorMessage = "Invalid username or password"
                     }
                 }
             }
         }) {
-            Text(text = "Login")
+            Text(text = AccountPage.Login.name)
         }
         if (errorMessage.isNotEmpty()) {
             Spacer(modifier = Modifier.height(8.dp))

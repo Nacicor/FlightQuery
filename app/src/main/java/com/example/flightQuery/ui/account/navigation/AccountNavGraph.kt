@@ -9,16 +9,16 @@ import com.example.flightQuery.ui.account.screen.LoginScreen
 import com.example.flightQuery.ui.account.screen.RegisterScreen
 
 @Composable
-fun NavGraph() {
+fun AccountNavGraph() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "Main") {
-        composable("Main") {
+    NavHost(navController = navController, startDestination = AccountPage.Main.name) {
+        composable(AccountPage.Main.name) {
             AccountMainScreen(navController)
         }
-        composable("Login") {
+        composable(AccountPage.Login.name) {
             LoginScreen(navController)
         }
-        composable("Register") {
+        composable(AccountPage.Register.name) {
             RegisterScreen(navController) {}
         }
     }
