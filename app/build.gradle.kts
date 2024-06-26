@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.firebase)
 }
 
 android {
@@ -53,9 +54,22 @@ ksp {
 
 dependencies {
 
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.gif)
+
+    implementation(libs.firebase.auth)
+
     implementation(libs.androidx.datastore.preferences)
+
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.play.services.auth)
+    implementation(libs.googleid)
+
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.navigation.compose)
