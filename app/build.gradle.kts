@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.firebase)
+    //alias(libs.plugins.firebase)
 }
 
 android {
