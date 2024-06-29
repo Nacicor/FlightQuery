@@ -4,6 +4,7 @@ coil = "2.6.0"
 credentials = "1.3.0-alpha02"
 datastorePreferences = "1.1.1"
 firebaseBom = "33.1.1"
+
 koinAndroid = "3.5.6"
 koinAndroidxComposeVersion = "3.5.6"
 kotlin = "2.0.0"
@@ -32,7 +33,12 @@ firebaseAuth = "23.0.0"
 playServicesAuth = "21.2.0"
 googleid = "1.1.0"
 
+hilt = "2.44"
+
 [libraries]
+
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"}
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler" , version.ref = "hilt"}
 
 androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
@@ -49,6 +55,7 @@ coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil" }
 #firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -78,8 +85,9 @@ googleid = { group = "com.google.android.libraries.identity.googleid", name = "g
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
 #firebase = { id = "com.google.gms.google-services", version.ref = "firebase" }

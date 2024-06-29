@@ -1,18 +1,11 @@
 package com.example.flightQuery
 
 import android.app.Application
-import com.example.flightQuery._di.appModule
-import com.example.flightQuery._di.networkModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-
-        startKoin {
-            androidContext(this@MyApplication)
-            modules(appModule, networkModule)
-        }
     }
 }
