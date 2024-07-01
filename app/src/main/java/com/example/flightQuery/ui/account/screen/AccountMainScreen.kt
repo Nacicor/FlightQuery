@@ -19,18 +19,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.flightQuery.ui.account.navigation.AccountPage
 import com.example.flightQuery.ui.account.viewmodel.LoginViewModel
 import com.example.flightQuery.ui.account.viewmodel.UserViewModel
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun AccountMainScreen(
     navController: NavController,
-    userViewModel: UserViewModel = koinViewModel(),
-    loginViewModel: LoginViewModel = koinViewModel()
+    userViewModel: UserViewModel = hiltViewModel(),
+    loginViewModel: LoginViewModel = hiltViewModel()
 ) {
     val userFromDataStore by loginViewModel.username.collectAsState()
     val userFromDatabase by userViewModel.userByName.collectAsState()

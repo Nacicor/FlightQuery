@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -23,18 +24,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.flightQuery.ui.account.navigation.AccountPage
 import com.example.flightQuery.ui.account.viewmodel.LoginViewModel
 import com.example.flightQuery.ui.account.viewmodel.UserViewModel
 import kotlinx.coroutines.launch
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun LoginScreen(
     navController: NavController,
-    loginViewModel: LoginViewModel = koinViewModel(),
-    userViewModel: UserViewModel = koinViewModel()
+    loginViewModel: LoginViewModel = hiltViewModel(),
+    userViewModel: UserViewModel = hiltViewModel()
 
 ) {
     var username by remember { mutableStateOf("") }
@@ -56,7 +57,7 @@ fun LoginScreen(
             modifier = Modifier.align(Alignment.Start)
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = "Back"
             )
         }

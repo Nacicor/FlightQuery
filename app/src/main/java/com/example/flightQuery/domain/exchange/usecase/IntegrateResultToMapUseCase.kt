@@ -1,6 +1,8 @@
 package com.example.flightQuery.domain.exchange.usecase
 
-class IntegrateResultToMapUseCase(
+import javax.inject.Inject
+
+class IntegrateResultToMapUseCase @Inject constructor(
     private val fetchCurrencyRateUseCase: FetchCurrencyRateUseCase,
     private val getRateResponseUseCase: GetRateResponseUseCase
 ) {
