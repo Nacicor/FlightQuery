@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -25,15 +26,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.flightQuery.domain.member.User
 import com.example.flightQuery.ui.account.viewmodel.UserViewModel
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun RegisterScreen(
     navController: NavController,
-    viewModel: UserViewModel = koinViewModel(),
+    viewModel: UserViewModel = hiltViewModel(),
     onRegisterSuccess: () -> Unit
 ) {
     var username by remember { mutableStateOf("") }
@@ -54,7 +55,7 @@ fun RegisterScreen(
             modifier = Modifier.align(Alignment.Start)
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = "Back"
             )
         }

@@ -28,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.flightQuery.domain.exchange.model.RateInfoItem
 import com.example.flightQuery.ui.exchange.ExchangeRateViewModel
 import com.example.flightQuery.ui.exchange.screen.caculatorView.BottomSheetCalculator
@@ -35,7 +36,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExchangeRatePage(model: ExchangeRateViewModel) {
+fun ExchangeRatePage(model: ExchangeRateViewModel= hiltViewModel()) {
     val allRateName = RateInfoItem.Data.getCurrencies()
     val bottomSheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }

@@ -23,10 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.flightQuery.R
 import com.example.flightQuery.ui.airport.AirportInfoViewModel
 import kotlinx.coroutines.launch
-import org.koin.androidx.compose.koinViewModel
+
 
 @Composable
 fun AirportInfoPage() {
@@ -64,7 +65,7 @@ fun AirportInfoPage() {
                 .padding(8.dp)
                 .fillMaxSize()
         ) { page ->
-            val viewModel: AirportInfoViewModel = koinViewModel()
+            val viewModel: AirportInfoViewModel = hiltViewModel()
 
             LaunchedEffect(page) {
                 flightType = if (page == 0) "D" else "A"

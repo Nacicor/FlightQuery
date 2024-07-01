@@ -18,17 +18,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.flightQuery.ui.account.navigation.AccountNavGraph
 import com.example.flightQuery.ui.airport.screen.AirportInfoPage
-import com.example.flightQuery.ui.exchange.ExchangeRateViewModel
 import com.example.flightQuery.ui.exchange.screen.ExchangeRatePage
 import com.example.flightQuery.ui.navigationbar.MyNavigationBar
 import com.example.flightQuery.ui.theme.FlightQueryTheme
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val exchangeRateViewModel: ExchangeRateViewModel by viewModel()
 
         setContent {
             FlightQueryTheme {
@@ -53,7 +51,7 @@ class MainActivity : ComponentActivity() {
                                 }
 
                                 1 -> {
-                                    ExchangeRatePage(exchangeRateViewModel)
+                                    ExchangeRatePage()
                                 }
 
                                 2 -> {

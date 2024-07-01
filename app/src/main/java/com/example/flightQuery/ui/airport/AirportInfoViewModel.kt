@@ -5,11 +5,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.flightQuery.domain.airport.model.AirportInfoItem
 import com.example.flightQuery.domain.airport.usecase.FetchAirportInfoUseCase
 import com.example.flightQuery.domain.airport.usecase.GetAirportInfoResponseUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AirportInfoViewModel(
+@HiltViewModel
+class AirportInfoViewModel @Inject constructor(
     private val fetchAirportInfoUseCase: FetchAirportInfoUseCase,
     private val getAirportResponseUseCase: GetAirportInfoResponseUseCase
 ) : ViewModel() {

@@ -3,7 +3,10 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.firebase)
+    alias(libs.plugins.hilt.plugin)
+
+
+    //alias(libs.plugins.firebase)
 }
 
 android {
@@ -54,6 +57,10 @@ ksp {
 
 dependencies {
 
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
 
@@ -80,8 +87,8 @@ dependencies {
     //testImplementation(libs.kotest.runner.junit5.jvm)
     //testImplementation(libs.kotest.assertions.core.jvm)
 
-    implementation(libs.koin.android)
-    implementation(libs.insert.koin.koin.androidx.compose)
+//    implementation(libs.koin.android)
+//    implementation(libs.insert.koin.koin.androidx.compose)
 
     implementation(libs.kotlin.reflect)
 

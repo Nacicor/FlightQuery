@@ -4,11 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flightQuery.domain.exchange.usecase.CreateNewCurrencyMapUseCase
 import com.example.flightQuery.domain.exchange.usecase.IntegrateResultToMapUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ExchangeRateViewModel(
+@HiltViewModel
+class ExchangeRateViewModel @Inject constructor(
     private val integrateResultToMapUseCase: IntegrateResultToMapUseCase,
     private val createCurrencyMap: CreateNewCurrencyMapUseCase
 ) : ViewModel() {
